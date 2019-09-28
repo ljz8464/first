@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.iconpaixun{
+    font-size: 22px;
+    margin-top: 5px;
+    color: greenyellow;
+    }
+.iconshang{
+    font-size: 30px;
+    color: red;
+    margin: 15px 0 0 0;
+    }
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+#nav {
+    position: fixed;
+    top: 55%;
+    left: 88%;
+    margin-top: -300px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#nav a:nth-child(1){
+    border-radius: 3px 3px 0 0;
+}
+.dragDropStyle{
+    width: 60px;
+    height: 60px!important;
+    border-radius: 0 0 3px 3px;
+    margin-bottom: 0 px;
+}
+.jumpTopStyle{
+    width: 60px;
+    height: 50px!important;
+    margin: 0px 0 0 0;
+    border-radius: 3px 3px 3px 3px ;
+}
+#nav a{
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background-color: #093D62;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 2px solid transparent;
+}
+#nav a:hover{
+    width: 60px;
+    background-color: #c7e2eb;
+}
+#nav a p{
+    position: relative;
+    z-index: 3;
+}
+#nav a.active{
+    background-color: #00a1d6;
+    color: #fff;
+}
+#main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#main div {
+    height: 500px;
+    background-color: #03a9f6;
+    border-top: 1px solid #ccc;
+    }
+
+#main div:nth-child(2n) {
+    background-color: #3e06da;
+}
+/**/
+.mainPage{
+    text-align: center;
+    font-size: 30px;
+    line-height: 500px;
+}
+
+.sideBar-line {
+    display: block;
+    width: 35px;
+    height: 10px;
+    margin: 0 auto;
+    background: #031f34;
+    
+}

@@ -1,0 +1,169 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+	margin: 0;
+	padding: 0
+}
+
+/* .headerbar{
+ width: 100%;
+ height: 71px; 
+ color: #fff;
+ position: fixed; 
+ z-index: 1000; 
+}
+
+.hlogo{
+    display: inline;
+}
+
+.logo_img{
+    display: inline-block;
+    width: 51px;
+}
+
+#header_search{
+    box-align: center;
+} */
+
+.header_top{ height:80px; z-index:123; background:url(../images/overlay.png) repeat; position:absolute; top:0px; }
+
+.header_top .logo_style{
+    width:250px;
+    height: 80px;
+    float: left;
+}
+
+.header_top .search_stye{ width:600px; float:right; height:80px;}
+
+.header_top .search_stye .search{ 
+    width:400px; 
+    border:0px; 
+    border-radius:3px 0px 0px 3px; 
+    margin-top:19px; 
+    height:40px;
+}
+
+.header_top .search_stye .button_submit{ 
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer; 
+    width:80px;
+    font-size:16px;
+    font-family:"微软雅黑"; 
+    height:40px; 
+    line-height:40px; 
+    border:0px;
+}
+
+.header_top .search_stye .button_submit .icon_search{ 
+    background:url(../images/search_icon.png) no-repeat 0px 3px;
+    padding:0px 11px;
+}
+
+
+.page_header{ height:60px; border-bottom:1px solid #dddddd; background-color:#f8f8f8;}
+
+.page_header .logo_style{ float:left; width:200px; height:60px;}
+
+.page_header .nav_list li a.Channel_name{    
+    width: 82px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    float: left;
+    font-family: "Microsoft Yahei";
+    cursor: pointer;
+    z-index: 99;
+    position: relative;
+    padding-left: 28px;
+}
+
+.page_header .nav_list li .i {
+    position: absolute;
+    
+	background:url(../images/base_common.png) no-repeat;
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.page_header .nav_list .nav_link .icon_home{left: 9px;top: 21px; background-position: -121px 0px;}
+
+.page_header .nav_list .nav_link:hover .icon_home{ background-position: -142px 0px; color:#249ff1 !important; text-decoration:none}
+
+.page_header .nav_list .nav_link .icon_nav{left: 9px; top: 23px; background-position: -162px 0px;}
+
+.page_header .nav_list .nav_link:hover .icon_nav{ background-position: -182px 0px;color:#249ff1 !important; text-decoration:none}
+
+.page_header .nav_list .nav_link .i_arw2{left: 65px; width: 10px;height: 5px;background-position: -185px -23px; top: 28px;}
+
+.page_header .nav_list .nav_link:hover .i_arw2{background-position: -185px -33px;}
+
+.page_header .search_style{ float:left; margin-top:9px; margin-left:100px;}
+
+.page_header .search_style .search{ height:40px; padding:5px; border-left:1px solid #dddddd; border-top:1px solid #dddddd; border-bottom:1px solid #dddddd; border-right:0px; width:400px;}
+
+.page_header .search_style .button_submit{ height:40px; border:0px; color:#ffffff; background-color:#1495E2; padding:0px 10px;}
+
+.page_header .search_style .button_submit .icon_search{ background:url(../images/search_icon.png) no-repeat 0px 3px; padding:0px 11px;}
+
+.page_header .nav_list{ float:left;}
+
+.page_header .nav_list li{ float:left; height:60px; line-height:60px; font-size:18px}
+
+/************************************/
+.page_header .nav_list .Channel_link.active .Channel_name{ background-color:#ffffff; border-left:1px solid #dddddd; border-right:1px solid #dddddd;}
+
+.page_header  .Channel_nav_list{ 
+	background:#ffffff; 
+	border-left:1px solid #dddddd; 
+	border-right:1px solid #dddddd; 
+	border-bottom:3px solid #249ff1; 
+	min-height:60px; 
+	position:absolute; 
+	top:60px; 
+	left:0px; 
+	width:100%;
+	display:none;
+	z-index:11;
+	webkit-animation: pop_fadein .5s alternate ease-in-out;
+    -moz-animation: pop_fadein .5s alternate linear;
+    -ms-animation: pop_fadein .5s alternate linear;
+    animation: pop_fadein .5s alternate ease-in-out;
+}
+.page_header  .Channel_nav_list.active{ display:block}
+
+.page_header  .Channel_nav_list li{ margin:0px 15px; position:relative}
+
+.page_header  .Channel_nav_list li a{ display:block; text-align:center; position:relative}
+
+.page_header  .Channel_nav_list li.split_line:after {
+   position: absolute;
+    top: 18px;
+    left: -15px;
+    display: block;
+    width: 1px;
+    height: 30px;
+    background-color: #ebebeb;
+    content: ' ';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
