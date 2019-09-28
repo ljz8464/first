@@ -1,0 +1,185 @@
+/*
+* @Author: win
+* @Date:   2016-09-09 12:12:43
+* @Last Modified by:   win
+* @Last Modified time: 2016-09-09 15:56:51
+*/
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.head{
+	width: 100%;
+	height: 180px;
+	background-color: rgba(100,100,100,0.1);
+	text-align: center;
+	line-height: 120px;
+	position: fixed;
+	top: 20px;
+	bottom: 30px;
+	/*left: 0;*/
+	color: hsla(0,0%,89%,1.00);
+}
+/*爱奇艺加的头*/
+.vip-tennis-left{
+    float:left;
+    width:229px;
+    height:138px;
+    border:1px solid #e8e8e8;
+    border-right:0 none;
+    background:url(//www.iqiyipic.com/common/fix/personal-center/vt-left-bg229138.png) no-repeat
+}
+/*.vip-tennis-right{float:left;width:749px;height:138px;border:1px solid #eee;border-left:0 none}*/
+/*.qypage-1180 .vip-tennis-right{width:949px}*/
+.vt-user-pic{float:left;margin:37px 9px 0 13px}
+.vt-user-pic-inner{
+    display:block;
+    width:60px;
+    height:60px;
+    border:2px solid #fff;
+    border-radius:100%;
+    overflow:hidden
+}
+.vt-user-pic-inner img{width:100%;height:100%;border-radius:100%}
+.vt-user-info{float:left;width:129px;margin-right:14px}
+.vt-user-info h2{height:18px;margin-top:35px;line-height:18px;font-size:0}
+/*喜欢吃绿豆沙的尉迟暄婷*/
+.vt-user-nickname{
+    display:inline-block;
+    max-width:84px;
+    margin-right:3px;
+    font-size:14px;
+    vertical-align:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis
+}
+.vt-user-info h2 .qy-rank-vip+.qy-rank-tennis{margin-left:5px}
+.user-score{height:18px;margin-top:8px}
+.icon-myscore{display:inline-block;width:18px;height:18px;background:url(//www.iqiyipic.com/common/fix/personal-center/icon-score-20171220.png) no-repeat -30px 0;vertical-align:0}
+.score-info-current-txt .icon-myscore{position:relative;top:2px}
+.userScoreNum{display:inline-block;max-width:102px;margin-left:5px;line-height:18px;font-size:14px;color:#d0a169;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.userScoreNum:hover{color:#deb47c}
+.user-score-btn{position:relative;margin-top:5px;line-height:18px;font-size:12px}
+.user-score-btn .btn-sign{color:#d0a169}
+.user-score-btn .btn-sign:hover{color:#deb47c}
+.user-score-btn .btn-sign.disable,.user-score-btn .btn-sign.disable:hover{color:#999}
+.user-score-btn .btn-sign-tips{
+    position:absolute;top:-10px;left:65px;font-size:12px;line-height:20px;color:#caa36e;
+    white-space:nowrap;text-align:center;
+    -ms-animation:scoresigntips ease 1.2s both;
+    -webkit-animation:scoresigntips ease 1.2s both;
+    animation:scoresigntips ease 1.2s both}@-webkit-keyframes scoresigntips{0%{top:-5px;left:60px}100%{top:-10px;left:65px;opacity:0}}@-ms-keyframes scoresigntips{0%{top:-5px;left:60px}100%{top:-10px;left:65px;opacity:0}}@keyframes scoresigntips{0%{top:-5px;left:60px}100%{top:-10px;left:65px;opacity:0}}
+.vt-vip-show{position:relative;float:left;width:375px;text-align:center}
+.qypage-1180 .vt-vip-show{width:475px}
+.vt-tennis-show{position:relative;float:right;width:374px;text-align:center}
+.qypage-1180 .vt-tennis-show{width:474px}
+.vt-divideline{position:absolute;left:0;top:19px;width:1px;height:100px;background-color:#eaeaea}
+.vt-icon{
+    display:block;width:42px;height:35px;margin:20px auto 8px;
+    background:url(//www.iqiyipic.com/common/fix/personal-center/vt-icon20180620.png) no-repeat;
+    overflow:hidden
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*左侧导航部分*/
+.nave{
+	width:260px;
+	background: #eee;
+	position: fixed;
+	left: 0;
+	top: 180px;
+}
+.nave ul{
+	width: 100%;height: 100%;
+}
+.nave ul li{
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+}
+.nave ul li:nth-child(even){
+	background: #fff;
+}
+.nave ul li:nth-child(1).current{
+	background: #fa2828;
+}
+.nave ul li:nth-child(2).current{
+	background: #333645;
+}
+.nave ul li:nth-child(3).current{
+	background: #76d241;
+}
+.nave ul li:nth-child(4).current{
+	background: #3bb600;
+}
+.nave ul li:nth-child(5).current{
+	background: #ff4326;
+}
+.nave ul li:nth-child(6).current{
+	background: #3766b4;
+}
+.nave ul li:nth-child(7).current{
+	background: #4b96e7;
+}
+
+
+.main_box{
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	padding: 120px 0 0 260px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+}
+
+.main_box>div{
+	width: 100%;
+}
+.page1{
+	background: #f43737;
+}
+.page2{
+	background: #474a57;
+}
+.page3{
+	background: #e4af05;
+}
+.page4{
+	background: #7cd454;
+}
+.page5{
+	background: #3db416;
+}
+.page6{
+	background: #4472bb;
+}
+.page7{
+	background: #4993e6;
+}
+
+.fotter{
+	width: 100%;
+	height: 200px;
+	background: pink;
+}
