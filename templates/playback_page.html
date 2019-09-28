@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/kekeplay/css/jsmodern.min.css">
+<script src="/static/kekeplay/js/jquery.min.js"></script>
+<script src="/static/kekeplay/js/jsmodern.min.js"></script>
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/comment_35.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/nav/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/static/js/nav/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<script src="/static/js/nav/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/js/nav/common.js" type="text/javascript"></script>
+<script src="/static/js/nav/layer/layer.js" type="text/javascript"></script>
+<script src="/static/js/nav/offlights.js" type="text/javascript"></script>
+<script src="/static/js/nav/jquery.nicescroll.js " type="text/javascript"></script>
+<title>{{ spname }}</title>
+<style>
+        input {
+            float: left;
+            width: 400px;
+            height: 22px;
+            padding: 8px 12px 8px 18px;
+            outline: 0 none;
+            color: black;
+            font-size: 14px;
+            line-height: 22px;
+            background: rgba(255,255,255,0.3);
+            border: 0 none;
+            border-top-left-radius: 19px;
+            border-bottom-left-radius: 19px;
+        }
+        .button_submit{
+            /* position: absolute; */
+            width: 80px;
+            height: 38px;
+            /* line-height: 38px; */
+            top: 0;
+            /* right: -1px; */
+            /* padding: 0; */
+            color: #fff;
+            text-align: center;
+            font-size: 13px;
+            font-family: "微软雅黑";
+            background: #1f82fc;
+            outline: 0;
+            /* cursor: pointer; */
+            border: 0 none;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+        }
+</style>
+<script>
+  $(function () {
+		jsModern.video("#video");
+	})
+</script>
+</head>
+
+<body>
+  <div id="header_top">
+  <div class="page_header">
+   <div class="header_style">
+    <div class="clearfix">
+      <a href="#" class="logo_style"><img src="/static/images/logo.jpg"  width="58"/></a>
+      <ul class="nav_list">
+       <li class="nav_link"><a href="/" class="Channel_name"><i class="i icon_home"></i>首页</a></li>
+       <li class="nav_link Channel_link">
+       <a href="javascript:" class="Channel_name"><i class="i icon_nav"></i>频道<i class="i i_arw2"></i></a>
+       <div class="Channel_nav_list">
+          <ul class=" clearfix">
+     <li class="Channel_color"><a href="list_page.html" ><i class="icon_TV"></i>电视剧</a></li>
+     <li class="Channel_color split_line"><a href="#" ><i class="icon_TV"></i>体育</a></li>
+     <li class="Channel_color split_line"><a href="#"><i class="icon_TV"></i>电影</a></li>
+     <li class="Channel_color split_line"><a href="#" ><i class="icon_TV"></i>网络电影</a></li>
+     <li class="Channel_color split_line"><a href="#" ><i class="icon_TV"></i>综艺</a></li>
+     <li class="Channel_color split_line"><a href="#" ><i class="icon_TV"></i>动漫</a></li>
+     <li class="Channel_color split_line"><a href="#" ><i class="icon_TV"></i>纪录片</a></li>
+     <li class="Channel_color split_line"><a href="#" ><i class="icon_TV"></i>公开课</a></li>
+    </ul>
+       </div>
+       </li>
+      </ul>
+          <form action="/searchresult/" method="get">
+    <div class="search_style">
+      <input name="search" type="text"  class="search"/><button name="" type="submit" class="button_submit" onclick="submit_btn()"><i class="icon_search"></i>搜索</button>
+    </div>
+    </form>
+    </div>
+   </div>
+  </div>
+  <!--视频播放-->
+  <div class="Video_playback_style">
+  <div class="page_style clearfix">
+   <!--面包屑-->
+   <div class="Location_link">
+    <em></em><a href="/">首页</a>  &lt;   <a href="list_page.html">电视剧</a> &lt; <span>{{ plays.name }}</span>
+   </div>
+   <!---->
+   <div class="Video_playback">
+    <div class="playback_title">{{ plays.name }} 第{{ i }}集 <span class="label_name">
+        <a href="#">{{ tag }}</a></span>
+    <div class="page_style clearfix" id="111">
+    <!-- <div id="test" class="test"> -->
+      <!-- <div id="video" style="width:800px;height:450px;float:left;">
+        <video src="http://download.xunleizuida.com/1903/D挺好-42.mp4"></video>
+      </div> -->
+      <div id="video" style="margin:auto;float: left;">
+        <video autoplay="true" width="800" height="450">
+            <source src="{{ urlm }}" type="video/mp4">
+        </video>
+      </div>
+
+    <div id="playerlist_style">
+    <div id="a2" class="listcontrol-btn close_btn" title="收起列表"><i class="site-icons-play icon-listcontrol-right"></i></div>
+    <div id="a3" class="show_btn" title="展开列表"><div class="listcontrol-pack-con"><i class="site-icons-play icon-listcontrol-left"></i>展开列表</div></div>
+     <div class="listcontrol_content" style="width:400px">
+     <div id="playerlist">
+      <div class="hd"><ul><li>选集<i class="jt"></i></li><li>介绍<i class="jt"></i></li></ul></div>
+      <div class="bd" id="videomenu_style">
+       <ul class="Episodes_list clearfix">
+        {% for lb in listb %}
+            {% if i == lb %}
+                <li class="volume selected"><a href={{ urli }}{{ lb }} title={{ plays.name }} rseat="sht_1">{{ lb }}</a></li>
+            {% else %}
+                <li class="volume"><a href={{ urli }}{{ lb }} title={{ plays.name }} rseat="sht_1">{{ lb }}</a></li>
+            {% endif %}
+        {% endfor %}
+{#        <li id="vli_7" onclick="playvideo(7)" class="volume"><a href="javascript:void(0);" title="如果我爱你未删减版" rseat="sht_1">8<em class="icon_b icon_xin"></em></a></li>#}
+       </ul>
+       <ul>
+        <li class="clearfix marginq">
+        <div class="l_f information_img"><img src={{ plays.img }}></div>
+        <div class="r_f play_information_b ">
+         <dl>
+          <dt>{{ plays.name }}</dt>
+          <dd class="mt10 clearfix"><label>地区：</label><span class="l_f"><a href="#">{{ region }}</a></span></dd>
+          <dd class="mt10 clearfix"><label>类型：</label><span class="l_f"><a href="#">{{ tag }}</a></span></dd>
+          <dd class="mt10 clearfix"><label>导演：</label><span class="l_f"><a href="#">{{ plays.director }}</a></span></dd>
+          <dd class="mt10 clearfix"><label>主演：</label><span class="l_f">{{ plays.stars }}</span></dd>
+         </dl>
+        </div>
+        </li>
+         <li class="marginq jieshao"><label>简介：</label>{{ plays.description }}</li>
+       </ul>
+      </div>
+      </div>
+      <script>jQuery("#playerlist").slide({delayTime:0});</script>
+     </div>
+    </div>
+    </div>
+   </div>
+  </div>
+  </div>
+  <!---->
+  <div class="play_video_b">
+   <div class="page_style">
+   <div class="l_f  frequency" id="play_vod_hits"><em class="icon_tup"></em><i>{{ plays.hot }}</i>次播放</div>
+   </div>
+  </div>
+  </div>
+  </div>
+ <!-- 评分区域 -->
+
+
+
+
+<!-- 评分结束 -->
+
+<!-- 评论区域 -->
+<!--<div>
+
+  <div style="width: 100%;margin-top: 5px;position: relative;" class="form-textarea form-textarea-picdom">
+    <textarea data-maxlength="300" name="content" placeholder="快来说说想法吧～" style="height: 81px;"></textarea>
+  </div>
+
+
+  <div class="form-toolbar-right">
+      <div class="form-tool form-action">
+
+          <a href="javascript:;" class="form-btn form-btn-large form-btn-submit">发表评论</a>
+
+      </div>
+      <div class="form-tooltip" style="display:none">
+        <div class="com_overlay_con">
+          <div class="tips"></div>
+        </div>
+      </div>
+    </div>
+
+</div> -->
+<div id="module_basic_comment">
+  <div class="comment-area ">
+    <div id="commentAction" class="comment-area-form"><div class="comment-form ">
+
+    <div class="form-cell form-content commentFormContent" data-spm-anchor-id="a2h0j.11185381.0.i4">
+{#        *****************************************#}
+    <form method="post" id="formId">
+        {% for field in form %}
+         {% csrf_token %}
+      <div class="form-user-info">
+          <style type="text/css">
+            *{margin:0;padding:0;list-style-type:none;}
+            a,img{border:0;}
+            img{vertical-align:middle;}
+            #QuacorGrading input{background:url(/static/images/grading.png) no-repeat scroll right center;cursor:pointer;height:30px;width:30px;padding:0;border:0;}
+            </style>
+
+            <div id="QuacorGrading" style="margin:0;">
+
+              <strong>评分</strong>
+              <input name="1" type="button" />
+              <input name="2" type="button" />
+              <input name="3" type="button" />
+              <input name="4" type="button" />
+              <input name="5" type="button" />
+              <input name="6" type="button" />
+              <input name="7" type="button" />
+              <input name="8" type="button" />
+              <input name="9" type="button" />
+              <input name="10" type="button" />
+              <span id="QuacorGradingValue"><b><font size="5" color="#fd7d28" >6.5</font></b>分</span>
+
+            </div>
+
+            <script type="text/javascript">
+            var GradList = document.getElementById("QuacorGrading").getElementsByTagName("input");
+
+            for(var di=0;di<parseInt(document.getElementById("QuacorGradingValue").getElementsByTagName("font")[0].innerHTML);di++){
+              GradList[di].style.backgroundPosition = 'left center';
+            }
+
+            for(var i=0;i < GradList.length;i++){
+              GradList[i].onmouseover = function(){
+                for(var Qi=0;Qi<GradList.length;Qi++){
+                  GradList[Qi].style.backgroundPosition = 'right center';
+                }
+                for(var Qii=0;Qii<this.name;Qii++){
+                  GradList[Qii].style.backgroundPosition = 'left center';
+                }
+                document.getElementById("QuacorGradingValue").innerHTML = '<b><font size="5" color="#fd7d28" id="ttt">'+this.name+'</font></b>分';
+              }
+            }
+            </script>
+
+
+      </div>
+
+
+      <div class="form-wordlimit"><span class="form-wordlimit-input input-count">0</span><span class="form-wordlimit-upper">/300</span></div>
+      <div class="form-textarea form-textarea-picdom" data-spm-anchor-id="a2h0j.11185381.0.i3">
+{#        <textarea data-maxlength="300" name="content" placeholder="快来说说想法吧～"  id="reviewww">#}
+{##}
+{#        </textarea>#}
+         {{ field.label_tag }}:{{ field }}
+         {{ field.errors }}
+
+      </div>
+        {% endfor %}
+      <div class="form-toolbar">
+        <div class="form-toolbar-center">
+          <div class="form-tool form-action">
+               <input type="submit" class="submitting" value="评论" id="btnload">
+          </div>
+          <div class="form-tooltip" style="display:none">
+            <div class="com_overlay_con">
+              <div class="tips"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-toolbar-left">
+
+        </div>
+
+        <div class="form-validate" style="display:none;">
+          验证码: <input class="defaultext verify_code_value" type="text" name="verify_code_value" placeholder="输入右图的字符">
+          <img class="key verify_code_img">
+          <span>看不清, <a class="change_verify_code" href="javascript:;">点此刷新</a></span>
+        </div>
+
+      </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="videocomment" class="comment-area-box">
+      <div class="comment-tab" style="width: 1380px;">
+        <ul class="comment-tab-left">
+          <li data-type="all" class="current comment-show">全部评论<em class="num" id="allCommentNum"></em></li>
+          <li data-type="owner">频道主说</li>
+          <li data-type="star">明星说</li>
+        </ul>
+        <ul class="comment-tab-right">
+          <li data-type="my" class="comment-show">我的评论消息</li>
+          <li data-type="input" style="display: none;"><i class="icon-publish-comment"></i>发表评论</li>
+        </ul>
+      </div>
+
+      <div class="comment-new-tooltip" style="display:none;">
+        <a style="display:block;" charset="hz-4001208" href="javascript:;">有新评论，刷新看看</a>
+      </div>
+
+      <div class="comment-area-list comment-list-nopager" id="shuaxing">
+        <div id="videoPostslist" class="posts-list-area comment-list-box">
+          <div class="comment-list-head">
+            <h3 class="title">热门影评</h3>
+          </div>
+          <div class="comment-list-body">
+          <div class="posts-list"></div><div class="posts-more"><a href="javascript:;">查看更多</a></div></div>
+        </div>
+        <div id="videoCommentlist">
+  <div class="comment-pager-header">
+  </div>
+
+  <div class="comment-list-main comment-list-box">
+    <div class="comment-list-head" style="display:none;">
+      <h3 class="title">最新评论</h3>
+    </div>
+    {% load pagination_tags %}
+    {% autopaginate ties 10 %}
+    <div class="comment-list-body" id="reloadDiv">
+        {% for tie in ties %}
+        <div class="comment-item" id="9509790061">
+            <div class="comment-content">
+{#                头像 #}
+              <div class="comment-user-avatar">
+                <a href="" target="_blank"><img _hz="" src="https://r1.ykimg.com/051000005C7B43548B6EE449920DB0AE"></a>
+              </div>
+              <div class="comment-section">
+                <div class="comment-user-info">
+                    {#      用户名称 #}
+                  <a class="redname" target="_blank">
+                    {{ tie.name }}
+                  </a>
+                  <span class="comment-timestamp">{{ tie.create_time }}</span>
+                </div>
+                  {#      评论 #}
+                <div class="comment-text">
+                  <p style="color:black;">
+                    {{ tie.content }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+    </div>
+  {% paginate %}
+  </div>
+
+  <div class="comment-pager-footer">
+
+  </div></div>
+      </div>
+
+      <div id="commentPublish" class="comment-tooltip">
+        <a href="javascript:;">发表评论</a>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+</div>
+
+
+
+  <!--底部样式-->
+  <div class="footer_style">
+  <div class="footer">
+   <div class="copys copys-list clearfix">
+     <a href="#">网络文化经营许可证 京网文[2014]xxxxx-236号</a>
+     <a href="#">京卫网审[2013]第0209号 网络110报警服务</a>
+     <a href="#">药品服务许可证(京)-经营2222-0029</a>
+    <a href="#">节目制作经营许可证京字670号</a>
+   </div>
+  <div class="link_name">
+  <a href="#">关于我们</a>|<a href="#">媒体合作</a>|<a href="#">开放平台</a>|<a href="#">广告服务</a>|<a href="#">联系我们</a>|<a href="#">工作机会</a>|<a href="#">友情链接</a></div>
+  <div class="Copyright">Copyright © 2004-2017 视频名称（xx.com）All rights reserved.</div>
+  <div class="align clearfix">
+   <a href="#"><img src="/static/images/ghs.png" />京公网安备：xxxxxxxxxxxxxxxx号</a> &nbsp;&nbsp;&nbsp;
+   <a href="#"><img src="/static/images/xy.png" />中国互联网诚信联盟</a>
+  </div>
+  </div>
+
+  </div>
+  <!-- 代码 开始 -->
+  <div class="go-top dn" id="go-top">
+
+      <a href="zhuce.html" target="_blank" class="feedback"></a>
+      <a href="javascript:;" class="go"></a>
+  </div>
+  </body>
+  </html>
+
+
+  <script>
+
+      $(document).ready(function(){
+            $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+            });
+        $('#formId').submit(function(){
+                var font=document.getElementById("ttt").innerText;
+                var count = $("#reviewww").val()
+                var urls = document.URL;
+                var listbody = document.getElementById('reloadDiv');
+                $.ajax({
+                    type:"POST",
+                    data: {font:font,count:count},
+                    url: urls, //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致
+                    cache: false,
+                    dataType: "html",
+
+                    success: function(listbody){
+
+                        $('.form-control').val('');  //成功时弹出view传回来的结果
+
+                    },
+                    error: function(){
+                        alert("false");
+                    }
+                });
+                return false;
+            });
+
+        });
+
+
+
+  /*********搜索*********/
+
+  function resettext() {
+    $('.form-control').val('');
+}
+
+  function submit_btn(){
+     $(".search_style input[type$='text']").each(function(n){
+        if($(this).val()=="")
+            {
+
+           layer.alert("搜索框不能为空！",{
+                  title: '提示框',
+          icon:0,
+            });
+              return false;
+            }
+       else{
+         location.href="/searchpage/";
+
+         }
+       })
+  }
+  </script>

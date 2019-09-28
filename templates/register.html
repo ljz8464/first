@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    <link rel="stylesheet" href="/static/css/register.css"/>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/fly.css">
+
+	<script type="text/javascript" src="/static/js/paper-full.min.js"></script>
+    <style>
+        .prompt {
+              display: inline-block;
+              margin-left:20px;
+              color: indianred;
+            }
+    </style>
+</head>
+<body>
+
+<!--注册框-->
+<div id="main" style="position: absolute;z-index: 999;">
+    <div id="header">
+    </div>
+    <div class="container">
+        <!-- <div class="bgPic"><img src="/static/images/register/xk1.jpg" alt=""/></div> -->
+        <div class="register">
+            <div class="title">
+                <span>注册</span>
+                <a href="/login/">去登录</a>
+                <p>
+                    <b class="prompt">{{ message }}</b>
+                </p>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="default">
+                    <p>用户名由3~10个数字和英文字符组成</p>
+                    <input id="uname" name="uname" data-form="uname" type="text" placeholder="用户名:"/>
+                </div>
+                <div class="default">
+                    <p>密码由8~10个数字和英文字符组成</p>
+                    <input id="upwd" name="upwd" data-form="upwd" type="password" placeholder="请输入密码:"/>
+                </div>
+                <div class="default">
+                    <p>请确认两次输入密码一致</p>
+                    <input id="upwd_2" name="upwd_2" data-form="upwd_2" type="password" placeholder="请确认密码:"/>
+                </div>
+                
+                <div class="default">
+                    <p>请输入中国大陆手机号码</p>
+                    <input id="phone" class="txt" name="uphone" data-form="phone" type="text" placeholder="手机"/>
+                    
+                    <input type="text" style="width:70%" id="code" class="txt" name="ucode" placeholder="验证码">
+                    <button type="button" class="get-code" onclick="getCode(this)" id="J_getCode" >
+                        点击获取
+                    </button>
+                    <button type="button" class="reset-code" id="J_resetCode" style="display:none;"><span id="J_second">60</span>秒后重发</button>
+                
+                </div>
+                <div class="submit" style="margin-top:60px;">
+                    <span class="notice">点击"注册"代表您同意遵守
+                        <a href="#">用户协议</a>
+                        和
+                        <a href="#">隐私条款</a>
+                    </span>
+                    <button class="s_hover" data-form="submit">注册</button>
+                </div>
+            </form>
+
+        </div>
+    </div>    
+    <div id="footer">
+    </div>
+</div>
+
+<!--特效-->
+<div style="position: relative;z-index: 10">
+    <canvas id="triangle-lost-in-space" resize="true"></canvas>
+    <script type="text/javascript" src="/static/js/fly.js"></script>
+    <style>
+        canvas{width: 100%;height: 100%}
+    </style>
+</div>
+
+<!-- 页面脚本区S -->
+	<!-- 所有页面用到的js脚本都必须放到此位置，包括外链js和内嵌js -->
+	<script src="/static/js/lib-jquery1.4.2.js"></script>
+	<script>
+    function createXhr(){
+    //判断浏览器对xhr的支持性
+      if(window.XMLHttpRequest){
+        return new XMLHttpRequest();
+      }else{
+        return new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    }
+
+    function validate() {
+        //1.创建xhr对象
+        var xhr = createXhr();
+        //2.创建请求 - open()
+        var uphone = document.getElementById('phone').value;
+        var url = "/register_dx?uphone=" + uphone;
+        xhr.open('get', url, true);
+        //3.设置回调函数 - onreadystatechange
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("show").innerHTML = xhr.responseText;
+            }
+        }
+        //4.发送请求 - send()
+        xhr.send(null);
+    }
+
+	/*添加品牌*/
+	function pinpai(){
+		var a = '<select class="larget-st">'+$('#pinpai select:first').html()+'</selct>';
+		$('#pinpai').append(a);
+	}
+	/*获取验证码*/
+	var isPhone = 1;
+	function getCode(e){
+	checkPhone(); //验证手机号码
+	if(isPhone){
+	    validate();
+		resetCode(); //倒计时
+
+	}else{
+		$('#phone').focus();
+	}
+	
+}
+//验证手机号码
+function checkPhone(){
+	var phone = $('#phone').val();
+	var pattern = /^1[0-9]{10}$/;
+	isPhone = 1;
+	if(phone == '') {
+		alert('请输入手机号码');
+		isPhone = 0;
+		return;
+	}
+	if(!pattern.test(phone)){
+		alert('请输入正确的手机号码');
+		isPhone = 0;
+		return;
+	}
+}
+//倒计时
+function resetCode(){
+	$('#J_getCode').hide();
+	$('#J_second').html('60');
+	$('#J_resetCode').show();
+	var second = 60;
+	var timer = null;
+	timer = setInterval(function(){
+		second -= 1;
+		if(second >0 ){
+			$('#J_second').html(second);
+		}else{
+			clearInterval(timer);
+			$('#J_getCode').show();
+			$('#J_resetCode').hide();
+		}
+	},1000);
+}
+</script>
+
+
+
+
+</body>
+</html>

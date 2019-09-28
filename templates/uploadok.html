@@ -1,0 +1,17 @@
+{% extends 'upload.html' %}
+
+{% block title %}
+<span class="up">Nebula</span>
+<span class="load">视频上传成功</span>
+{% endblock %}
+
+{% block form %}
+<form method="post" action="/form/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="body" id="drop">
+        <a href="/">返回主页面</a>
+    </div>
+</form>
+{% endblock %}
+{% block boby %}
+{% endblock %}

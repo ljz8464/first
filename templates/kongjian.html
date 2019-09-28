@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/mxx/css/basic.css">
+    <link rel="stylesheet" type="text/css" href="/static/mxx/css/personalCenter.css">
+    <script type="text/javascript" src="/static/mxx/js/commonpingback.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/huanyemian.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/cooksdk.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/qia.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/bacon.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/aiyiqi.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/seals.js"></script>
+    <script src="/static/iwt.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+            window.Q = window.Q || {};
+            Q.PaoPaoInfo = Q.PaoPaoInfo || {};
+            Q.PaoPaoInfo['uid'] = "2542479902";
+            Q.PaoPaoInfo['userName'] = "尉迟暄婷";
+            Q.PaoPaoInfo['isMaster'] = "1";
+            Q.PaoPaoInfo['type'] = "user";
+        </script>
+</head>
+<body>
+<div class="qy_main">
+    <div class="main_inner">
+
+<!-- 个人中心 VIP 进度条 开始 -->
+<div class=" vip-tennis-condition  no-vipMember ">
+    <!-- 不是会员时外层追加 no-vipMember 类名 -->
+    <div class="vip-tennis-left">
+        <div class="vt-user-pic">
+            <a class="vt-user-pic-inner" href="#" target="_blank">
+                <img src="/static/mxx/image/NB_20190218190627.jpg" id="ucbannerImg" j-role="ucbannerImg" data-top-head="head">
+            </a>
+        </div>
+        <div class="vt-user-info">
+            <h2>
+                <a class="vt-user-nickname" id="ucbannerName" j-role="ucbannerName" href="javascript:;">尉迟暄婷</a>
+                 <script>
+    function getCookie(name){
+          var strcookie = document.cookie;
+          var arrcookie = strcookie.split("; ");
+
+          for ( var i = 0; i < arrcookie.length; i++) {
+            var arr = arrcookie[i].split("=");
+
+            if (arr[0] == name){
+              return arr[1];
+            }
+          }
+          return "";
+    }
+
+    function getUserIcon (data) {
+        if (data.code === 'A00000') {
+            var result = '';
+            var name = '';
+            var suid = getCookie("P00PRU");
+            var i, familyList, userInfo;
+
+            if (
+                data &&
+                data.data &&
+                data.data.familyInfo &&
+                data.data.familyInfo.list
+            ) {
+                familyList = data.data.familyInfo.list;
+                for (i=0; i<familyList.length; i++) {
+                    userInfo = familyList[i];
+                    if (userInfo.suid === suid) {
+                      result = userInfo.icon;
+                      name = userInfo.nickname
+                      break;
+                    }
+                }
+            } else {
+                result = data.data.userInfo.icon;
+                name = data.data.userInfo.nickname || data.data.userInfo.name;
+            }
+            result = result.replace('http:', '');
+        }
+        if (!result) {
+            if ("$pageName" === 'vip') {
+                result = "//www.iqiyipic.com/common/fix/site-v4/header-userImg-default-gold.png";
+            } else {
+                result = "//www.iqiyipic.com/common/fix/site-v4/header-userImg-default-green.png";
+            }
+        }
+
+        return {result:result,name:name};
+    }
+    function updateUserIcon () {
+        var userIconDom = document.getElementById("ucbannerImg");
+        var userNameDom = document.getElementById("ucbannerName");
+        var script = document.createElement('script');
+        var callbackName = 'updateUserIconCallback';
+        var oHead = document.head || document.getElementsByTagName('head')[0];
+        var userIcon;
+
+        document.domain = "iqiyi.com";
+        oHead.insertBefore(script, null);
+        window[callbackName] = function (data) {
+            setTimeout(function() {
+                oHead.removeChild(script);
+            }, 10);
+
+            window[callbackName] = null;
+            window.pageInfo = window.pageInfo || {};
+            userIcon = getUserIcon(data);
+            userIconDom.src = userIcon.result;
+            userNameDom.innerHTML = userIcon.name;
+            window.pageInfo.userIcon = userIcon;
+        }
+        script.src = "//pcw-api.iqiyi.com/passport/user/userinfodetail?callback=" + callbackName;
+    }
+    updateUserIcon();
+</script>
+                <!-- 灰色带等级皇冠 等级1 qyvr-gray1 等级2 qyvr-gray2 依次类推 -->
+                    <a class="qy-rank-vip qyrv-gray1" href="#" target="_blank">
+                    </a>
+                <!-- 灰色体育会员图标 -->
+                    <i class="qy-rank-tennis qyrt-gray"></i>
+            </h2>
+            <p class="user-score">
+                <a href="#" class="f1 icon-myscore"></a>
+                <a href="#" class="f1 userScoreNum J-personal-score" data-user-score="score">90</a>
+            </p>
+            <p class="user-score-btn">
+                <a href="javascript:void(0);" class="btn-sign j-user-sign " data-user-signcount="0" data-user-signcore="5" data-user-sign="in" rseat="801041_signup1">
+                    签到+5积分
+                </a>
+                <span class="btn-sign-tips" style="display:none;" data-user-message="animate">+5分</span>
+            </p>
+        </div>
+    </div>
+    <!-- 当成长值为 0 时 display:none; -->
+    <div class="vip-tennis-right" data-growthvalue="zero">
+        <!-- 体育会员 -->
+        <div class="vt-tennis-show">
+            <em class="vt-divideline"></em>
+            <i class="vt-icon vt-icon-grayTennis"></i>
+            <a class="vt-btn vt-greenBtn" href="#" target="_blank" rseat="c75737_open">立即开通</a>
+            <p class="vt-des">开通体育会员享体育精彩赛事</p>
+        </div>
+        <!-- VIP -->
+        <div class="vt-vip-show">
+            <!-- 灰色无等级皇冠 -->
+            <i class="vt-icon vt-icon-grayVip"></i>
+            <div class="vt-btn-wrapper">
+                <a class="vt-btn vt-goldBtn" href="javascript:;" target="qiyiVip" rseat="c75737_open" data-autorenew="true" data-packageamount="12" data-vippay-ele="vipPayBtn" data-fvval="" data-fcval="b867c28e7d093325">立即开通</a>
+
+            </div>
+            <p class="vt-des">开通VIP会员享丰富等级福利</p>
+        </div>
+        <!-- 成长值进度条 -->
+        <div class="vt-vip-growthLevel">
+            <div class="vt-vip-levelBar">
+                <a href="" class="vt-vip-levelBtn level-left">
+                    <!-- 灰色带等级皇冠 等级1 qyrg-gray1 等级2 qyrg-gray2 依次类推 -->
+                    <i class="qy-rank-grow qyrg1" style="display:block;" data-vip-currentlevel="level"></i>
+                </a>
+                <a href="" class="vt-vip-levelBtn level-right" style="display:block;">
+                    <!-- 灰色带等级皇冠 等级1 qyrg-gray1 等级2 qyrg-gray2 依次类推 -->
+                    <i class="qy-rank-grow qyrg-gray2" style="display:block;" data-vip-reachlevel="level"></i>
+                </a>
+                <div class="vt-vip-levelBar-inner" style="display: none;" data-growthvalue="nozero">
+                    <div class="vt-vip-level-value-wrapper">
+                        <div class="vt-vip-level-value">
+                            <span class="vt-vip-level-value-txt">成长值</span>
+                            <em class="vt-vip-level-value-num" data-vip-growthvalue="nozero">0</em>
+                            <i class="vt-vip-level-value-icon"></i>
+                        </div>
+                        <span class="vt-vip-level-value-arrow">
+                            <i class="vt-vip-level-value-arrow-inner"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="growQuestion">
+                <a href="#" target="_blank" rseat="c75737_levelinfo" class="growQuestion-text">
+                    <i class="icon-questionMark"></i>什么是成长等级？</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 个人中心 VIP 进度条 结束 -->
+<div class="mod-mainWrap">
+    <div class="custom-main-outer">
+        <div class="custom-main-inner">
+            <div class="mySpace-wrapper">
+<div class="mySpace-info clearfix">
+    <div class="fl personalAvatar">
+        <img src="/static/mxx/image/female-130.jpg" alt="">
+    </div>
+    <div class="fl personal-details">
+        <h1 class="personal-name">
+            <a href="javascript:void(0);" class="fl">尉迟暄婷</a>
+            <a class="sub_title" href="javascript:;" rseat="706051_fans1"><i class="pp-icons pp-icon_qy"></i>
+                <em title=""></em>
+            </a>
+        </h1>
+        <div class="personal-intro">
+            <span class="intro_txt" data-paopaouser-header="signTxt">
+                一句话签名
+            </span>
+            <a href="javascript:;" class="intro_editBtn focusIndividual_editBtn" data-paopaouser-header="editSignHandle" title="编辑" rseat="706051_edit1"></a>
+        </div>
+        <!-- 编辑签名：输入框获取焦点加personal-intro-edit-focus，输入字数超出加personal-intro-edit-error -->
+        <div data-paopaouser-header="editSignArea" class="personal-intro-edit clearfix dn">
+            <div class="editBox">
+                <input data-paopaouser-header="edit" value="" class="editBox_input" type="text" placeholder="一句话介绍下自己吧">
+                <span class="editBox_limit">
+                    <strong data-paopaouser-header="inputNum">0</strong>/70</span>
+            </div>
+            <div class="editDialog clearfix">
+                <a href="javascript:;" class="confirmBtn" data-paopaouser-header="saveSign">保存</a>
+                <a href="javascript" class="canclemBtn" data-paopaouser-header="cancelEditSignArea">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mySpace-tab">
+    <ul class="mySpace-tab-list">
+                <!-- 选中加selected -->
+        <li class=" selected ">
+            <a href="#" rseat="706051_feed1">动态</a>
+        </li>
+        <li class="">
+            <a href="# rseat="706051_group1">圈子</a>
+        </li>
+        <li class="">
+            <a href="#" rseat="706051_video1">视频</a>
+        </li>
+        <li class="">
+            <a href="#" rseat="706051_list1">播单</a>
+        </li>
+    </ul>
+    </div>
+                        <!-- 动态feed流 -->
+                        <script type="text/javascript">
+    Q.PaoPaoInfo['feedId'] = "0" || "";
+        Q.PaoPaoInfo['contentLength'] = 206;
+    Q.PaoPaoInfo['remaining'] = 0;
+</script>
+    <!-- 动态为空-->
+    <div class="m-emptyState">
+        <p class="emptyState_txt"><i class="icon_emptyDt"></i>Ta还未发布任何动态～</p>
+    </div>
+                        <script type="text/javascript">
+    Q.PaoPaoInfo = Q.PaoPaoInfo || {};
+    Q.PaoPaoInfo['allWallInfos'] = null;
+    Q.PaoPaoInfo['recommend_remaining'] = "0";
+    Q.PaoPaoInfo['recommend_page'] = "1";
+</script>
+<div class="m-recState" data-paopao-ele="recAllWrap">
+            <div class="titleIndividual">你可能感兴趣的</div>
+        <div class="m-feedSection_qz" data-paopao-ele="recFeedList">
+            <div class="m-feedMore" data-paopao-ele="moreRecFeed">
+            <a href="javascript:;" class="feedMore dn" data-paopao-ele="loadMoreRec">加载更多
+                <i class="icon_arrGrayB14"></i>
+            </a>
+            <div class="feedMore_loading dn" data-paopao-ele="loadingRec">
+                <img src="//www.iqiyipic.com/common/images/load.gif" alt="正在加载...">正在加载中，请稍候...</div>
+            <div class="feedMore_loading" data-paopao-ele="loadLastRec">没有更多内容了~</div>
+        </div>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+
+
+<!-- 个人中心左侧导航栏  开始 -->
+<div class="custom-main-left-side" id="uc-leftBar">
+  <div class="side-top-tr" data-leftnav-elem="content">
+      <div class="mod-side_menu">
+        <dl class="mod-menu">
+            <dd>
+              <div class="tle  ">
+                  <a href="/bofangjilu/" rseat="lnav75737_record" class="link">
+                      <i class="ff-icon"></i>
+                      <span class="menu-text">播放记录</span>
+                  </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle ">
+                <a href="/zhuiju/" rseat="lnav75737_fav" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">追剧&amp;收藏</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle ">
+                <a href="/xiaoxi/" rseat="lnav75737_news" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">我的消息</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle selected">
+                <a href="/kongjian/" rseat="lnav75737_spacem" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">我的空间</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle  ">
+                <a href="/shezhi/" rseat="612211_setting" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">个人设置</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle  ">
+                <a href="/jifen/" rseat="801041_grade" class="link">
+{#                    <i class="icon-personalCenterNav icon-score"></i>#}
+                    <span class="menu-text">我的积分</span>
+                </a>
+              </div>
+            </dd>
+        </dl>
+        <div class="user_line"></div>
+        <dl class="mod-menu">
+
+        </dl>
+        <div class="user_line"></div>
+        <dl class="mod-menu">
+            <dd>
+              <div class="tle" data-leftbar-elem="menu">
+                  <a href="/chuangzuo/" class="link" rseat="612211_author" data-menu-elem="title">
+{#                      <i class="icon-personalCenterNav icon-creation"></i>#}
+                      <span class="menu-text">创作中心</span>
+                  </a>
+                  <ul class="mod-mene-sub" style="display: none;" data-menu-elem="body" data-menu-show="hide">
+                      <li class="pt10 ">
+                          <a href="#" rseat="lnav75737_videoMng" class="mene-sub-title">视频管理</a>
+                      </li>
+                  </ul>
+              </div>
+            </dd>
+
+        </dl>
+        <div class="user_line"></div>
+      </div>
+  </div>
+</div>
+<!-- 个人中心左侧导航栏改版  结束 -->
+</div>
+    </div>
+</div>
+</body>
+</html>

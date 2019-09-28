@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/static/mxx/image/NB_20190218190627.jpg" type="image/icon">
+    <link rel="stylesheet" type="text/css" href="/static/mxx/css/basic.css">
+    <link type="text/css" rel="stylesheet" href="/static/mxx/css/personalCenter.css">
+
+    <script src="//datax.baidu.com/x.js?si=&amp;dm=www.iqiyi.com"></script>
+    <script async="" src="/static/mxx/js/bacon.js"></script>
+    <script async="" src="/static/mxx/js/shoucang/qa.js"></script>
+
+    <script type="text/javascript" src="/static/mxx/js/commonpingback.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/shoucang/hm.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/shoucang/online.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/shoucang/online_.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/shoucang/pcwebwonder.js"></script>
+    <script type="text/javascript" src="/static/mxx/js/seals.js"></script>
+    <title>我的积分 - 星云个人中心</title>
+    <script src="/static/mxx/js/iwt.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+<body>
+    <div class="qy_main">
+        <div class="main_inner">
+
+<!-- 个人中心 VIP 进度条 开始 -->
+<div class=" vip-tennis-condition  no-vipMember ">
+    <!-- 不是会员时外层追加 no-vipMember 类名 -->
+    <div class="vip-tennis-left">
+        <div class="vt-user-pic">
+            <a class="vt-user-pic-inner" href="#" target="_blank">
+                <img src="/static/mxx/image/NB_20190218190627.jpg" id="ucbannerImg" j-role="ucbannerImg" data-top-head="head">
+            </a>
+        </div>
+        <div class="vt-user-info">
+            <h2>
+                <a class="vt-user-nickname" id="ucbannerName" j-role="ucbannerName" href="javascript:;">尉迟暄婷</a>
+                 <script>
+                    function getCookie(name){
+          var strcookie = document.cookie;
+          var arrcookie = strcookie.split("; ");
+
+          for ( var i = 0; i < arrcookie.length; i++) {
+            var arr = arrcookie[i].split("=");
+
+            if (arr[0] == name){
+              return arr[1];
+            }
+          }
+          return "";
+    }
+
+    function getUserIcon (data) {
+        if (data.code === 'A00000') {
+            var result = '';
+            var name = '';
+            var suid = getCookie("P00PRU");
+            var i, familyList, userInfo;
+
+            if (
+                data &&
+                data.data &&
+                data.data.familyInfo &&
+                data.data.familyInfo.list
+            ) {
+                familyList = data.data.familyInfo.list;
+                for (i=0; i<familyList.length; i++) {
+                    userInfo = familyList[i];
+                    if (userInfo.suid === suid) {
+                      result = userInfo.icon;
+                      name = userInfo.nickname
+                      break;
+                    }
+                }
+            } else {
+                result = data.data.userInfo.icon;
+                name = data.data.userInfo.nickname || data.data.userInfo.name;
+            }
+            result = result.replace('http:', '');
+        }
+        if (!result) {
+            if ("$pageName" === 'vip') {
+                result = "//www.iqiyipic.com/common/fix/site-v4/header-userImg-default-gold.png";
+            } else {
+                result = "//www.iqiyipic.com/common/fix/site-v4/header-userImg-default-green.png";
+            }
+        }
+
+        return {result:result,name:name};
+    }
+    function updateUserIcon () {
+        var userIconDom = document.getElementById("ucbannerImg");
+        var userNameDom = document.getElementById("ucbannerName");
+        var script = document.createElement('script');
+        var callbackName = 'updateUserIconCallback';
+        var oHead = document.head || document.getElementsByTagName('head')[0];
+        var userIcon;
+
+        document.domain = "iqiyi.com";
+        oHead.insertBefore(script, null);
+        window[callbackName] = function (data) {
+            setTimeout(function() {
+                oHead.removeChild(script);
+            }, 10);
+
+            window[callbackName] = null;
+            window.pageInfo = window.pageInfo || {};
+            userIcon = getUserIcon(data);
+            userIconDom.src = userIcon.result;
+            userNameDom.innerHTML = userIcon.name;
+            window.pageInfo.userIcon = userIcon;
+        }
+        script.src = "//pcw-api.iqiyi.com/passport/user/userinfodetail?callback=" + callbackName;
+    }
+    updateUserIcon();
+</script>
+                                    <!-- 灰色带等级皇冠 等级1 qyvr-gray1 等级2 qyvr-gray2 依次类推 -->
+                <a class="qy-rank-vip qyrv-gray1" href="#" target="_blank"></a>
+                                    <!-- 灰色体育会员图标 -->
+                <i class="qy-rank-tennis qyrt-gray"></i>
+            </h2>
+            <p class="user-score">
+                <a href="#" class="f1 icon-myscore"></a>
+                <a href="#" class="f1 userScoreNum J-personal-score" data-user-score="score">90</a>
+            </p>
+            <p class="user-score-btn">
+                <a href="javascript:void(0);" class="btn-sign j-user-sign " data-user-signcount="0" data-user-signcore="5" data-user-sign="in" rseat="801041_signup1">
+                    签到+5积分
+                </a>
+                <span class="btn-sign-tips" style="display:none;" data-user-message="animate">+5分</span>
+            </p>
+        </div>
+    </div>
+    <!-- 当成长值为 0 时 display:none; -->
+    <div class="vip-tennis-right" data-growthvalue="zero">
+        <!-- 体育会员 -->
+        <div class="vt-tennis-show">
+            <em class="vt-divideline"></em>
+            <i class="vt-icon vt-icon-grayTennis"></i>
+                <a class="vt-btn vt-greenBtn" href="#" target="_blank" rseat="c75737_open">立即开通</a>
+                <p class="vt-des">开通体育会员享体育精彩赛事</p>
+        </div>
+        <!-- VIP -->
+        <div class="vt-vip-show">
+                            <!-- 灰色无等级皇冠 -->
+                <i class="vt-icon vt-icon-grayVip"></i>
+                <div class="vt-btn-wrapper">
+                    <a class="vt-btn vt-goldBtn" href="javascript:;" target="qiyiVip" rseat="c75737_open" data-autorenew="true" data-packageamount="12" data-vippay-ele="vipPayBtn" data-fvval="" data-fcval="b867c28e7d093325">立即开通</a>
+                </div>
+            <p class="vt-des">开通VIP会员享丰富等级福利</p>
+        </div>
+        <!-- 成长值进度条 -->
+        <div class="vt-vip-growthLevel">
+            <div class="vt-vip-levelBar">
+                <a href="" class="vt-vip-levelBtn level-left">
+                                            <!-- 灰色带等级皇冠 等级1 qyrg-gray1 等级2 qyrg-gray2 依次类推 -->
+                    <i class="qy-rank-grow qyrg1" style="display:block;" data-vip-currentlevel="level"></i>
+                </a>
+                <a href="" class="vt-vip-levelBtn level-right" style="display:block;">
+                                                                <!-- 灰色带等级皇冠 等级1 qyrg-gray1 等级2 qyrg-gray2 依次类推 -->
+                    <i class="qy-rank-grow qyrg-gray2" style="display:block;" data-vip-reachlevel="level"></i>
+                </a>
+                <div class="vt-vip-levelBar-inner" style="display: none;" data-growthvalue="nozero">
+                    <div class="vt-vip-level-value-wrapper">
+                        <div class="vt-vip-level-value">
+                            <span class="vt-vip-level-value-txt">成长值</span>
+                            <em class="vt-vip-level-value-num" data-vip-growthvalue="nozero">0</em>
+                            <i class="vt-vip-level-value-icon"></i>
+                        </div>
+                        <span class="vt-vip-level-value-arrow">
+                            <i class="vt-vip-level-value-arrow-inner"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="growQuestion">
+                <a href="#" target="_blank" rseat="c75737_levelinfo" class="growQuestion-text">
+                    <i class="icon-questionMark"></i>什么是成长等级？</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 个人中心 VIP 进度条 结束 -->
+<div class="mod-mainWrap">
+    <!-- 右侧内容 开始 -->
+    <div class="custom-main-outer">
+        <div class="custom-main-inner">
+            <div class="myScore-wrapper">
+                <div class="read-title">
+                    <div class="fl">
+                        <h2 class="read-title-bd fl">做任务领VIP</h2>
+                    </div>
+                </div>
+                <div class="score-info-banner j-score-wrap" data-total-score="90">
+                    <div class="fr">
+                        <ul class="score-info-project-list">
+                            <li>
+                                <a href="javascript:void(0);" class="j-score-mygains" rseat="801041_prize">
+                                    <i class="icon-score-mygains"></i>我的收获</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="j-score-details" rseat="801041_detail">
+                                    <i class="icon-score-details"></i>积分明细</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="j-score-rule" rseat="801041_intro">
+                                    <i class="icon-score-rule"></i>积分规则</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fl score-info-current">
+                        <h3 class="score-info-current-txt">
+                            <em>当前积分</em>
+                            <span class="curScoreNum J-personal-score">90</span>
+                            <i class="icon-myscore"></i>
+                        </h3>
+                        <p class="score-deadline">65积分将在2019-06-01到期</p>
+                    </div>
+                </div>
+
+<!-- 我的收获弹窗 -->
+    <div class="popup-score-wrapper score-goods j-mygains-popup" style="display: none;">
+        <h3 class="popup-score-tit"><a href="javascript:void(0);" class="popup-score-close j-mygains-close"></a>我的收获</h3>
+        <div class="popup-score-con">
+          <iframe src="" class="j-mygains-iframe"></iframe>
+        </div>
+    </div>
+
+<!-- 积分弹窗：积分明细 -->
+    <div class="popup-score-wrapper j-details-popup" style="display: none;">
+        <h3 class="popup-score-tit">
+            <a href="javascript:void(0);" class="popup-score-close j-details-close"></a>积分明细</h3>
+        <div class="popup-score-con">
+            <div class="popup-score-info-banner">
+                <h3 class="score-info-current-txt">
+                    <em>当前积分</em>
+                    <span class="curScoreNum J-personal-score">90</span>
+                    <i class="icon-myscore"></i>
+                </h3>
+                <p class="score-deadline">65积分将在2019-06-01到期</p>
+            </div>
+           <div class="pop-score-info-detail j-widget-scroll" data-widget-scroll="scroll" data-score-scrollcont="cont">
+               <div data-details-content="content">
+                   <ul class="score-detail-list j-details-content">
+                        <textarea data-score-details="user" class="j-details-list" style="display: none;">
+                                &lt;li&gt;
+                                    &lt;em class="score-change-value"&gt;{{item.score}}&lt;/em&gt;
+                                    &lt;em class="score-change-date"&gt;{{item.eventTime}}&lt;/em&gt;
+                                    &lt;span class="score-change-event"&gt;{{item.channelName}}&lt;/span&gt;
+                                &lt;/li&gt;
+                        </textarea>
+                    </ul>
+                    <div class="score-detail-tips">仅展示最近三个月的数据</div>
+                </div>
+                                                                                                                                                                                                                                                                                        <div class="scrollbar-wrapper">
+                        <div class="scrollbar dn" style="top: 0px; height: 50px;" data-score-scrollrail="rail"></div>
+                    </div>
+                    <div class="score-detail-empty j-tip-noScore" style="display: none;">暂无积分记录，快去做任务赚积分吧！</div>
+            </div>
+        </div>
+    </div>
+
+<!-- 积分弹窗：积分规则 -->
+    <div class="popup-score-wrapper j-rule-popup" style="display: none;">
+        <h3 class="popup-score-tit">
+            <a href="javascript:void(0);" class="popup-score-close j-rule-close"></a>积分规则</h3>
+        <div class="popup-score-con">
+            <div class="popup-score-rule">
+                <dl>
+                    <dt>Q:积分可以用来做什么？</dt>
+                    <dd>A:积分可以在积分商城中兑换商品，如：爱奇艺VIP体验券</dd>
+                </dl>
+                <dl>
+                    <dt>Q:如何获得积分？</dt>
+                    <dd>A:通过做任务可以赚取积分。每日24点刷新，任务含：签到，观看视频30分钟，访问爱奇艺泡泡首页。</dd>
+                </dl>
+                <dl>
+                    <dt>Q:积分是否做完任务自动发放？</dt>
+                    <dd>A:不是。用户需要在个人中心我的积分中手动领取，未领取的积分将在每日24点失效。</dd>
+                </dl>
+                <dl>
+                    <dt>Q:会有用作弊的方式来获得积分吗？</dt>
+                    <dd>A:对以不正当手段（包括但不限于作弊，网络攻击，扰乱系统等）参与积分任务的用户，爱奇艺有权禁止其参与积分任务，并取消其所获积分。</dd>
+                </dl>
+                <dl>
+                    <dt>任务规则：</dt>
+                    <dd>签到任务：</dd>
+                    <dd>1.每日可完成一次。</dd>
+                    <dd>2.连续签到天数越多，可获得的积分值越高。</dd>
+                </dl>
+                <dl>
+                    <dt>观看视频30分钟：</dt>
+                    <dd>1.每日可完成三次。</dd>
+                    <dd>2.观看任意视频累计30分钟即算任务完成一次。</dd>
+                </dl>
+                <dl>
+                    <dt>访问爱奇艺泡泡首页：</dt>
+                    <dd>1.每日可完成一次。</dd>
+                    <dd>2.打开爱奇艺泡泡页面并且加载完毕，即算任务完成。</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+                <div class="score-task-wrapper j-task-wrap" data-usertotal-score="90">
+    <h2 class="score-subtit">
+        <i></i>每日任务</h2>
+    <ul class="score-task-list">
+        <li class="score-task-sign-box">
+            <i class="icon-score-task ist-sign"></i>
+            <div class="fl">
+                <h3 class="score-task-name">签到
+                    <span class="score-task-tips">
+                        <i class="tipsbg-left"></i>
+                        <em>+5分</em>
+                        <i class="tipsbg-right"></i>
+                    </span>
+                </h3>
+                <p class="score-task-done">完成
+                    <span class="score-task-done-num j-sign-count">0</span>/1</p>
+            </div>
+                <div class="score-task-btn-wrapper j-task-notSign">
+                    <a href="javascript:void(0);" class="score-task-btn j-task-sign" data-task-signcore="5" rseat="801041_signup2">签到</a>
+                </div>
+                <i class="score-done-stamp j-sign-done" style="display:none;"></i>
+            <!-- 我的积分toast -->
+            <div class="toast-myscore j-sign-failure" style="display: none;">签到失败，请重试！</div>
+        </li>
+                <li class="score-task-watch-box">
+                <i class="icon-score-task ist-watch"></i>
+                <div class="fl">
+                <h3 class="score-task-name">每观看视频30分钟
+                    <span class="score-task-tips">
+                        <i class="tipsbg-left"></i>
+                        <em>+10分</em>
+                        <i class="tipsbg-right"></i>
+                    </span>
+                </h3>
+                <p class="score-task-done">完成
+                    <span class="score-task-done-num">0</span>/3</p>
+            </div>
+                    <div class="score-task-btn-wrapper">
+                    <a href="#" class="score-task-btn" rseat="803141_record">去观看</a>
+                </div>
+                    </li>
+                <li class="score-task-visitpp-box">
+            <i class="icon-score-task ist-visitpp"></i>
+            <div class="fl">
+                <h3 class="score-task-name">访问泡泡首页
+                    <span class="score-task-tips">
+                        <i class="tipsbg-left"></i>
+                        <em>+10分</em>
+                        <i class="tipsbg-right"></i>
+                    </span>
+                </h3>
+                <p class="score-task-done">完成
+                    <span class="score-task-done-num j-paopao-count" data-paopao-count="count">
+                        0
+                    </span>/1</p>
+            </div>
+                    <div class="score-task-btn-wrapper j-task-notComplete">
+                    <a href="#" class="score-task-btn j-task-paopao" data-task-paoscore="10" data-pao-rewardcount="0" target="_blank" rseat="801041_go">
+                        去逛逛
+                    </a>
+                </div>
+                <i class="score-done-stamp j-task-complete" style="display:none;"></i>
+                    <!-- 我的积分toast -->
+            <div class="toast-myscore j-paopao-failure" style="display: none;">领取失败，请重试！</div>
+        </li>
+    </ul>
+</div>
+<div class="score-mall-wrapper">
+    <h2 class="score-subtit">
+        <i></i>积分商城</h2>
+    <div class="score-no-goods j-wrap-error" style="display:none;"><i class="icon-no-goods"></i><span>出错了，</span><a href="javascript:void(0);" class="j-error-tip" rseat="802071_refresh">刷新试试</a></div>
+    <ul class="score-goods-list j-goods-content" data-total-score="90">
+       <textarea class="j-goods-list" style="display: none;">
+            &lt;li class="clearfix j-goods-item" data-notLogin-url="url" data-good-url="{{item.redirect}}"&gt;
+                &lt;a class="score-goods-pic" href="javascript:void(0);"&gt;
+                    &lt;img src="{{item.image}}" alt="" rseat="801041_img"&gt;
+                &lt;/a&gt;
+                &lt;h3 class="score-goods-name"&gt;
+                    &lt;a href="javascript:void(0);" rseat="801041_title" data-duiba-good="good"&gt;{{item.title}}&lt;/a&gt;
+                &lt;/h3&gt;
+                &lt;p class="score-useup"&gt;{{item.credits}}积分&lt;/p&gt;
+            &lt;/li&gt;</textarea>
+
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2080172&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/yinxiang.jpg" alt="" rseat="801041_img1">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title1" data-duiba-good="good">i71蓝牙音箱套装50元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2059618&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/tixudao.jpg" alt="" rseat="801041_img2">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title2" data-duiba-good="good">飞科剃须刀20元券</a>
+                </h3>
+                <p class="score-useup">180积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2080186&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/taideng.jpg" alt="" rseat="801041_img3">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title3" data-duiba-good="good">LED台灯66元券</a>
+                </h3>
+                <p class="score-useup">100积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2075396&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/huaban.jpg" alt="" rseat="801041_img4">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title4" data-duiba-good="good">画板40元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=1961143&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/jianguo.jpg" alt="" rseat="801041_img5">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title5" data-duiba-good="good">5包装坚果20元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083711&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/Ubaozhen.jpg" alt="" rseat="801041_img6">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title6" data-duiba-good="good">颈椎按摩器20元券</a>
+                </h3>
+                <p class="score-useup">120积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2080183&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/shuibei.jpg" alt="" rseat="801041_img7">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title7" data-duiba-good="good">儿童水杯10元券</a>
+                </h3>
+                <p class="score-useup">100积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2080175&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/mianbao.jpg" alt="" rseat="801041_img8">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title8" data-duiba-good="good">干脆面30包10元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2061851&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/yanmai.jpg" alt="" rseat="801041_img9">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title9" data-duiba-good="good">水果燕麦片500g10元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2063881&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/haidilao.jpg" alt="" rseat="801041_img10">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title10" data-duiba-good="good">干脆面10元券</a>
+                </h3>
+                <p class="score-useup">100积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2070985&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/erji.jpg" alt="" rseat="801041_img11">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title11" data-duiba-good="good">耳机10元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2078881&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/yinxiang.jpg" alt="" rseat="801041_img12">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title12" data-duiba-good="good">智能音响10元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083715&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/weilong.jpg" alt="" rseat="801041_img13">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title13" data-duiba-good="good">卫龙亲嘴烧30包10元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2078887&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/xiyiye.jpg" alt="" rseat="801041_img14">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title14" data-duiba-good="good">洗衣液4斤30元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2078892&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/chezaierji.jpg" alt="" rseat="801041_img15">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title15" data-duiba-good="good">车载耳机30元券</a>
+                </h3>
+                <p class="score-useup">180积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2075401&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/ertongdeng.jpg" alt="" rseat="801041_img16">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title16" data-duiba-good="good">儿童凳20元券</a>
+                </h3>
+                <p class="score-useup">80积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083713&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/baozhen.jpg" alt="" rseat="801041_img17">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title17" data-duiba-good="good">抱枕10元券</a>
+                </h3>
+                <p class="score-useup">180积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083705&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/yudoufu.jpg" alt="" rseat="801041_img18">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title18" data-duiba-good="good">鱼豆腐10元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083703&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/niuzhatang.jpg" alt="" rseat="801041_img19">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title19" data-duiba-good="good">牛轧糖10元券</a>
+                </h3>
+                <p class="score-useup">180积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083699&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/yanzhao.jpg" alt="" rseat="801041_img20">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title20" data-duiba-good="good">眼罩20元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2083701&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/yanmai.jpg" alt="" rseat="801041_img21">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title21" data-duiba-good="good">水果燕麦10元券</a>
+                </h3>
+                <p class="score-useup">100积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2080173&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/chongdianbao.jpg" alt="" rseat="801041_img22">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title22" data-duiba-good="good">智能充电宝50元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2078893&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/hongshujuxian.jpg" alt="" rseat="801041_img23">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title23" data-duiba-good="good">红色数据线20元券</a>
+                </h3>
+                <p class="score-useup">180积分</p>
+            </li>
+            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2081838&amp;itemId=null">
+                <a class="score-goods-pic" href="javascript:void(0);">
+                    <img src="/static/mxx/image/jifenduihuan/ersai.jpg" alt="" rseat="801041_img24">
+                </a>
+                <h3 class="score-goods-name">
+                    <a href="javascript:void(0);" rseat="801041_title24" data-duiba-good="good">耳塞30元券</a>
+                </h3>
+                <p class="score-useup">200积分</p>
+            </li>
+{#            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2081837&amp;itemId=null">#}
+{#                <a class="score-goods-pic" href="javascript:void(0);">#}
+{#                    <img src="http://yun.duiba.com.cn/images/201903/ap0z1x0074.jpg" alt="" rseat="801041_img25">#}
+{#                </a>#}
+{#                <h3 class="score-goods-name">#}
+{#                    <a href="javascript:void(0);" rseat="801041_title25" data-duiba-good="good">爱奇艺VR一体机700元券</a>#}
+{#                </h3>#}
+{#                <p class="score-useup">500积分</p>#}
+{#            </li>#}
+{#            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2070993&amp;itemId=null">#}
+{#                <a class="score-goods-pic" href="javascript:void(0);">#}
+{#                    <img src="http://yun.duiba.com.cn/images/201901/n2muarhu1z.jpg" alt="" rseat="801041_img26">#}
+{#                </a>#}
+{#                <h3 class="score-goods-name">#}
+{#                    <a href="javascript:void(0);" rseat="801041_title26" data-duiba-good="good">S925银项链20元券</a>#}
+{#                </h3>#}
+{#                <p class="score-useup">120积分</p>#}
+{#            </li>#}
+{#            <li class="clearfix j-goods-item" data-notlogin-url="url" data-good-url="http://activity.m.duiba.com.cn/pc/pcitem/itemdetail?appItemId=2075398&amp;itemId=null">#}
+{#                <a class="score-goods-pic" href="javascript:void(0);">#}
+{#                    <img src="http://yun.duiba.com.cn/images/201902/xuhrwo1mje.jpg" alt="" rseat="801041_img27">#}
+{#                </a>#}
+{#                <h3 class="score-goods-name">#}
+{#                    <a href="javascript:void(0);" rseat="801041_title27" data-duiba-good="good">游戏手柄20元券</a>#}
+{#                </h3>#}
+{#                <p class="score-useup">120积分</p>#}
+{#            </li>#}
+        </ul>
+    <div class="j-widget-loading">
+        <div class="loading  load_custom_jz" data-loading="loading" style="display: none;" data-private-display="block">
+            <img alt="正在加载..." src="//www.iqiyipic.com/common/images/load.gif">
+            <span class="c999 ml10">正在加载，请稍候</span>
+        </div>
+    </div>
+<!-- 商品兑换 -->
+    <div class="popup-score-wrapper score-goods j-goods-popup" style="display: none;" data-goods-iframe="iframe">
+        <h3 class="popup-score-tit"><a href="" class="popup-score-close j-goods-close"></a></h3>
+        <div class="popup-score-con">
+          <iframe src="" class="j-goods-iframe" data-iframe-content="content"></iframe>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 个人中心左侧导航栏  开始 -->
+<div class="custom-main-left-side" id="uc-leftBar">
+  <div class="side-top-tr" data-leftnav-elem="content">
+      <div class="mod-side_menu">
+        <dl class="mod-menu">
+            <dd>
+              <div class="tle  ">
+                  <a href="/bofangjilu/" rseat="lnav75737_record" class="link">
+                      <i class="ff-icon"></i>
+                      <span class="menu-text">播放记录</span>
+                  </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle ">
+                <a href="/zhuiju/" rseat="lnav75737_fav" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">追剧&amp;收藏</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle ">
+                <a href="/gerenzhongxin/xiaoxi/" rseat="lnav75737_news" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">我的消息</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle ">
+                <a href="/kongjian/" rseat="lnav75737_spacem" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">我的空间</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle  ">
+                <a href="/shezhi/" rseat="612211_setting" class="link">
+                  <i class="ff-icon"></i>
+                  <span class="menu-text">个人设置</span>
+                </a>
+              </div>
+            </dd>
+            <dd>
+              <div class="tle  selected">
+                <a href="/gerenzhongxin/jifen/" rseat="801041_grade" class="link">
+
+                    <span class="menu-text">我的积分</span>
+                </a>
+              </div>
+            </dd>
+        </dl>
+        <div class="user_line"></div>
+        <dl class="mod-menu">
+
+        </dl>
+        <div class="user_line"></div>
+        <dl class="mod-menu">
+            <dd>
+              <div class="tle" data-leftbar-elem="menu">
+                  <a href="/chuangzuo/" class="link" rseat="612211_author" data-menu-elem="title">
+
+                      <span class="menu-text">创作中心</span>
+                  </a>
+                  <ul class="mod-mene-sub" style="display: none;" data-menu-elem="body" data-menu-show="hide">
+                      <li class="pt10 ">
+                          <a href="#" rseat="lnav75737_videoMng" class="mene-sub-title">视频管理</a>
+                      </li>
+                  </ul>
+              </div>
+        </dl>
+        <div class="user_line"></div>
+      </div>
+  </div>
+</div>
+<!-- 个人中心左侧导航栏改版  结束 -->
+</div>
+        </div>
+    </div>
+</body>
+</html>

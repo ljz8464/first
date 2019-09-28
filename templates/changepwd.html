@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link rel="stylesheet" href="/static/mxx/css/queren.css"/>
+    <link rel="stylesheet" href="/static/mxx/css/base.css"/>
+</head>
+<body>
+    <div name="i71-home" class="security-con" style="">
+        <div><!----> <!----></div>
+        <div class="container">
+            <div class="register">
+            <div class="title">
+                <span>修改密码</span>
+            </div>
+            <form autocomplete="off">
+                <div class="default">
+                    <p>请输入用户名或手机号码</p>
+                    <input id="uname" name="uname" data-form="uname" type="text" />
+                    <label for="uname">用户名/手机</label>
+                </div>
+                <div class="default">
+                    <p>请输入验证码</p>
+                    <input type="text" style="width:70%" id="code" class="txt" placeholder="验证码">
+                    <label for="uname">验证码</label>
+                    <button type="button" class="get-code" onclick="getCode(this)" id="J_getCode">点击获取</button>
+                </div>
+                <div class="default">
+                    <p>请输入账号密码</p>
+                    <input id="upwd" name="upwd" data-form="upwd" type="password"/>
+                    <label for="upwd">新密码</label>
+                </div>
+                <div class="submit">
+                    <span class="notice">
+                        <a href="#"></a>
+                    </span>
+                    <button class="s_hover" data-form="submit">确认修改</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <script src="/static/mxx/js/safecenter/app_58ff7347.js"></script>
+    <script src="/static/mxx/js/safecenter/common_a4627be8.js"></script>
+    <script src="/static/mxx/js/safecenter/home_00d01885.js"></script>
+    <script src="/static/mxx/js/safecenter/vendor_c25447d6.js"></script>
+</body>
+</html>
