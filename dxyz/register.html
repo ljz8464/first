@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MOBAN</title>
+<script type="text/javascript" src="jquery-1.10.2.minl.js" ></script>
+
+<script type="text/javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+
+
+
+    var countdown=60;
+    function settime(val) {
+
+
+    if (countdown == 0) {
+        val.removeAttribute("disabled");
+        val.value="获取验证码";
+        countdown = 60;
+        return false;
+    } else {
+        val.setAttribute("disabled", true);
+        val.value="重新发送(" + countdown + ")";
+        countdown--;
+    }
+
+    setTimeout(function() {
+        settime(val);
+        },1000);
+
+    }
+
+      function  code(){
+           $.ajax({
+                     type: "POST", //用POST方式传输
+                     dataType: "text", //数据格式:JSON
+                     url: '<%=path%>/servlet/RandomCodeServlet', //目标地址
+                     error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                     success: function (msg){ }
+                  });
+     }
+
+
+
+
+	function input(mobile) {
+	    var btn=1;
+	    document.getElementById("code_btn").disabled=true;
+		if (mobile.length == 0) {
+			alert('请输入手机号码！');
+			btn = 0;
+			document.form1.mobile.focus();
+			return false;
+		}
+
+		if (mobile.length != 11) {
+			alert('请输入长度11位手机号码！');
+			btn = 0;
+			document.form1.mobile.focus();
+			return false;
+		}
+
+		var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+		if (!myreg.test(mobile)) {
+			alert('请输入有效的手机号码！');
+			btn = 0;
+			document.form1.mobile.focus();
+			return false;
+		}
+
+		if(btn==1){
+		   document.getElementById("code_btn").disabled=false;
+		}
+	}
+</script>
+</head>
+<body>
+<h1>NeBula 影视</h1>
+		<div class="app-location">
+			<h2>欢迎注册~NeBula</h2>
+
+			<form>
+                手机号:
+				<input type="text" class="text" name="phone" id="phone_num"  onblur="input(this.value)"  value="请输入手机号码" onFocus="this.value = '';"  >
+                <br>
+                验证码:
+				<input type="text" value="请输入验证码" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = '请输入验证码';}">
+                <br>
+				<input type="button" id="code_btn" disabled="true"  onclick="code(),settime(this);" value="获取验证码" >
+
+				<div class="submit">
+					<input type="submit" value="登录" >
+				</div>
+
+
+				<div class="clear"></div>
+			</form>
+		</div>
+</body>
+</html>
